@@ -27,13 +27,13 @@ const ProductsList = () => {
     }, []);
 
     return (
-        <div>
+        <div className='products'>
             {productsList.map(product => (
-            <li key={product.id}>
-                <p>{product.title}</p>
-                <img src={product.thumbnail} alt="" />
-                <p>Price: {product.price}$</p>
-                <p>---------------------</p>
+            <li className='products__li' key={product.id}>
+                <p className='products__p'>{product.title}</p>
+                <img className='products__icon'src={product.thumbnail} alt="" />
+                <p className='products__p'>Price: {product.price}$</p>
+                <p className='products__p'>---------------------</p>
             </li>
             ))}
         </div>
