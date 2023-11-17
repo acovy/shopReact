@@ -20,11 +20,11 @@ const Categories = () => {
             try {
                 const data = await getAllCategories();
                 
-                const filteredCategories = data.filter(category => (
+                const filteredCategories = ['all', ...data.filter(category => (
                     category === 'smartphones' || 
                     category === 'motorcycle' || 
                     category === 'home-decoration'
-                ));
+                ))];
                 setCategoriesList(filteredCategories);
             } catch (error) {
                 console.error('Error getting categories:', error);
