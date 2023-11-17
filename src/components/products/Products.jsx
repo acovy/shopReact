@@ -28,17 +28,14 @@ const ProductsList = () => {
 
     return (
         <div>
-            <h2>Список товаров:</h2>
-            <ul>
-                {productsList.map(product => (
-                    <li key={product.id}>
-                        <p>{product.title}</p>
-                        <img src={product.thumbnail} alt="" />
-                        <p>Price: {product.price}$</p>
-                        <p>---------------------</p>
-                    </li>
-                ))}
-            </ul>
+            {productsList.map(product => (
+            <li key={product.id}>
+                <p>{product.title}</p>
+                <img src={product.thumbnail} alt="" />
+                <p>Price: {product.price}$</p>
+                <p>---------------------</p>
+            </li>
+            ))}
         </div>
     );
 }

@@ -1,12 +1,14 @@
-// App.js
-import React, { useEffect } from 'react';
-import ProductsList from './components/products/Products';
+import React from 'react';
+import Main from './components/main/Main';
+import Header from './components/header/Header';
+import Footer from './components/footer/Footer';
 
 function App() {
   return (
     <div>
-      <h1>Магазин электроники</h1>
-      <ProductsList />
+      <Header/>
+      <Main/>
+      <Footer/>
     </div>
   );
 }
