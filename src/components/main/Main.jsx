@@ -1,9 +1,11 @@
 import ProductsList from "../products/Products";
+import Categories from "./mainComponents/categories/Categories";
 import './Main.scss';
 const Main = () => {
     return (
         <main>
-            <ProductsList/>
+            <Categories/>
+            {/* <ProductsList/> */}
         </main>
     )
 }

@@ -27,9 +27,9 @@ const ProductsList = () => {
     }, []);
 
     return (
-        <div className='products'>
+        <div className='products__list'>
             {productsList.map(product => (
-            <li className='products__li' key={product.id}>
+            <li className='products__element' key={product.id}>
                 <p className='products__p'>{product.title}</p>
                 <img className='products__icon' src={product.thumbnail} alt="" />
                 <p className='products__p'>Price: {product.price}$</p>
@@ -40,7 +40,3 @@ const ProductsList = () => {
 }
 
 export default ProductsList;
-// состояние с продуктами 
-// запрос и data запроса закидываю в стейт
-// useEffect вызываем запрос как побочный эффект при обновлении делал загрузку
-// отрисовать state через map (в getAllProducts будет весь массив продуктов)
