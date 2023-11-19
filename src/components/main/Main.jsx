@@ -12,11 +12,6 @@ const Main = () => {
     return (
         <main>
             <Categories/>
-            {/* <Smartphones/>
-            <Motorcycle/>
-            <Homedecoration/>
-            <AllProducts/>
-            <SingleProduct/> */}
         </main>
     )
 }

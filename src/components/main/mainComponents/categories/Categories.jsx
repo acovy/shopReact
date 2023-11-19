@@ -1,7 +1,10 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-
 import './Categories.scss';
+import Smartphones from './smartphones/Smartphones';
+import Motorcycle from './motorcycle/Motorcycle';
+import Homedecoration from './homedecoration/Homedecoration';
+import AllProducts from './allProducts/AllProducts';
 
 const Categories = () => {
     const [categoriesList, setCategoriesList] = useState([]);
@@ -45,12 +48,21 @@ const Categories = () => {
             {categoriesList && categoriesList.length > 0 ? (
                 categoriesList.map((category, index) => (
                     <li className='categories__element' key={index}>
-                        <button className="categories__btn" onClick={() => showComponent('category')}>{category.toUpperCase()}</button>
+                        <button
+                            className="categories__btn"
+                            onClick={() => showComponent(category)}
+                        >
+                            {category.toUpperCase()}
+                        </button>
                     </li>
                 ))
             ) : (
                 <p>Loading categories...</p>
             )}
+            {visibleComponent === 'smartphones' && <Smartphones />}
+            {visibleComponent === 'motorcycle' && <Motorcycle />}
+            {visibleComponent === 'home-decoration' && <Homedecoration />}
+            {visibleComponent === 'all' && <AllProducts />}
         </div>
     )
 }
