@@ -12,11 +12,11 @@ const Main = () => {
     return (
         <main>
             <Categories/>
-            <Smartphones/>
+            {/* <Smartphones/>
             <Motorcycle/>
             <Homedecoration/>
             <AllProducts/>
-            <SingleProduct/>
+            <SingleProduct/> */}
         </main>
     )
 }

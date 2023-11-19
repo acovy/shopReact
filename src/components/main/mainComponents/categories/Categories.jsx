@@ -1,9 +1,16 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+
 import './Categories.scss';
 
 const Categories = () => {
     const [categoriesList, setCategoriesList] = useState([]);
+
+    const [visibleComponent, setVisibleComponent] = useState('');
+
+    const showComponent = (component) => {
+        setVisibleComponent(component);
+    };
 
     const getAllCategories = async () => {
         try {
@@ -38,7 +45,7 @@ const Categories = () => {
             {categoriesList && categoriesList.length > 0 ? (
                 categoriesList.map((category, index) => (
                     <li className='categories__element' key={index}>
-                        <p>{category}</p>
+                        <button className="categories__btn" onClick={() => showComponent('category')}>{category.toUpperCase()}</button>
                     </li>
                 ))
             ) : (
