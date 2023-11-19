@@ -4,6 +4,8 @@ import Motorcycle from "./mainComponents/categories/motorcycle/Motorcycle";
 import Homedecoration from "./mainComponents/categories/homedecoration/Homedecoration";
 import AllProducts from "./mainComponents/categories/allProducts/AllProducts";
 
+import SingleProduct from "./mainComponents/singleProduct/SingleProduct";
+
 import './Main.scss';
 
 const Main = () => {
@@ -14,6 +16,7 @@ const Main = () => {
             <Motorcycle/>
             <Homedecoration/>
             <AllProducts/>
+            <SingleProduct/>
         </main>
     )
 }
