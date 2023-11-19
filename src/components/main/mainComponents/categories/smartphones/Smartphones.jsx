@@ -32,7 +32,6 @@ const Smartphones = () => {
             <ul>
                 {smartphonesList.map((smartphone, index) => (
                     <li key={index}>{smartphone.title}</li>
-                    // Здесь можешь отобразить любую информацию о смартфонах, доступную в объекте
                 ))}
             </ul>
         </div>

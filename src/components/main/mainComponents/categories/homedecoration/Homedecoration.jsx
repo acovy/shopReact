@@ -32,7 +32,6 @@ const Homedecoration = () => {
             <ul>
                 {homedecorationList.map((homedecoration, index) => (
                     <li key={index}>{homedecoration.title}</li>
-                    // Здесь можешь отобразить любую информацию о смартфонах, доступную в объекте
                 ))}
             </ul>
         </div>

@@ -32,7 +32,6 @@ const Motorcycle = () => {
             <ul>
                 {motorcycleList.map((motorcycle, index) => (
                     <li key={index}>{motorcycle.title}</li>
-                    // Здесь можешь отобразить любую информацию о смартфонах, доступную в объекте
                 ))}
             </ul>
         </div>
