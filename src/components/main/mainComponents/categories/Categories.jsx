@@ -1,19 +1,16 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import './Categories.scss';
+import { Routes, Route, Link, useParams } from 'react-router-dom';
+
 import Smartphones from './smartphones/Smartphones';
 import Motorcycle from './motorcycle/Motorcycle';
 import Homedecoration from './homedecoration/Homedecoration';
 import AllProducts from './allProducts/AllProducts';
 
+import './Categories.scss';
+
 const Categories = () => {
     const [categoriesList, setCategoriesList] = useState([]);
-
-    const [visibleComponent, setVisibleComponent] = useState('');
-
-    const showComponent = (component) => {
-        setVisibleComponent(component);
-    };
 
     const getAllCategories = async () => {
         try {
@@ -42,27 +39,39 @@ const Categories = () => {
         };
         fetchCategories();
     }, []);
+    
+    const CategoryComponent = () => {
+        
+        const { category } = useParams();
+
+        switch (category) {
+            case 'smartphones':
+                return <Smartphones />;
+            case 'motorcycle':
+                return <Motorcycle />;
+            case 'home-decoration':
+                return <Homedecoration />;
+            case 'all':
+                return <AllProducts />;
+            default:
+                return <p>Category not found</p>;
+        }
+    };
 
     return (
         <div className='categories__list'>
             {categoriesList && categoriesList.length > 0 ? (
                 categoriesList.map((category, index) => (
-                    <li className='categories__element' key={index}>
-                        <button
-                            className="categories__btn"
-                            onClick={() => showComponent(category)}
-                        >
-                            {category.toUpperCase()}
-                        </button>
-                    </li>
+                        <li className='categories__element' key={index}>
+                            <Link to={`/${category}`}>{category.toUpperCase()}</Link>
+                        </li>
                 ))
             ) : (
                 <p>Loading categories...</p>
             )}
-            {visibleComponent === 'smartphones' && <Smartphones />}
-            {visibleComponent === 'motorcycle' && <Motorcycle />}
-            {visibleComponent === 'home-decoration' && <Homedecoration />}
-            {visibleComponent === 'all' && <AllProducts />}
+            <Routes>
+                <Route path="/:category" element={<CategoryComponent />} />
+            </Routes>
         </div>
     )
 }
