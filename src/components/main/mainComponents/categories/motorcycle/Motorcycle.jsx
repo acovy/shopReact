@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom';
 
 const Motorcycle = () => {
     const [motorcycleList, setMotorcycleList] = useState([]);
@@ -31,7 +32,9 @@ const Motorcycle = () => {
             <h2>Motorcycle</h2>
             <ul>
                 {motorcycleList.map((motorcycle, index) => (
-                    <li key={index}>{motorcycle.title}</li>
+                    <li key={index}>
+                        <Link to={`/product/${motorcycle.id}`}>{motorcycle.title}</Link>
+                    </li>
                 ))}
             </ul>
         </div>

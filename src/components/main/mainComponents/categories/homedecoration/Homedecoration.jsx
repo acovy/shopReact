@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom';
 
 const Homedecoration = () => {
     const [homedecorationList, setHomedecorationList] = useState([]);
@@ -31,7 +32,9 @@ const Homedecoration = () => {
             <h2>Home-decoration</h2>
             <ul>
                 {homedecorationList.map((homedecoration, index) => (
-                    <li key={index}>{homedecoration.title}</li>
+                <li key={index}>
+                    <Link to={`/product/${homedecoration.id}`}>{homedecoration.title}</Link>
+                </li>
                 ))}
             </ul>
         </div>
