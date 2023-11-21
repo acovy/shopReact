@@ -38,8 +38,8 @@ const AllProducts = () => {
         <div>
             <h2>All</h2>
             <ul>
-                {allProductsList.map((product, index) => (
-                    <li key={index}>
+                {allProductsList.map((product) => ( // ? как сделать отрисовку singleProduct и у каждого свое содержимое
+                    <li key={product.id}>
                         <Link to={`/product/${product.id}`}>{product.title}</Link>
                     </li>
                 ))}
