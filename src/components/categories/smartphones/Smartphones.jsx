@@ -26,6 +26,7 @@ const Smartphones = () => {
         };
         fetchSmartphones();
     }, []);
+    
 
     return (
         <div>

@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Link, } from 'react-router-dom';
-import './Main.scss';
+import './index.scss';
 
 
 const Main = () => {
@@ -36,7 +36,7 @@ const Main = () => {
          ) : (
             <p>Loading categories...</p>
          )};
-
+         
       </div>
 
    )
