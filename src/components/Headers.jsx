@@ -1,11 +1,9 @@
-
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { Link, } from 'react-router-dom';
 import './index.scss';
 
-
-const Main = () => {
+const Headers = ({setSelectedCategories}) => {
    const [categoriesList, setCategoriesList] = useState([]);
 
    useEffect(() => {
@@ -17,29 +15,28 @@ const Main = () => {
                category === 'motorcycle' ||
                category === 'home-decoration'
             ))
-            setCategoriesList(["all", ...filtered])
+            setCategoriesList([...filtered])
          })
          .catch((error) => console.log(error));
 
       getAllCategories()
    }, [])
 
-
    return (
       <div className="main">
          {categoriesList && categoriesList.length > 0 ? (
             categoriesList.map((category, index) => (
-               <li className='categories__element' key={index}>
-                  <Link to={`/${category}`}>{category.toUpperCase()}</Link>
-               </li>
+               <div className='categories__element' key={index} onClick={() => setSelectedCategories(category)}>
+                  {/* <Link to={`/${category}`}> */}
+                     {category.toUpperCase()}
+                     {/* </Link> */}
+               </div>
             ))
          ) : (
             <p>Loading categories...</p>
          )};
-         
       </div>
-
    )
 }
 
-export default Main;
+export default Headers;

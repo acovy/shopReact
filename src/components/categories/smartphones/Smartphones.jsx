@@ -1,45 +1,37 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import IndexPage from '../../../app/index'
 
 const Smartphones = () => {
-    const [smartphonesList, setSmartphonesList] = useState([]);
+   const [smartphonesList, setSmartphonesList] = useState([]);
 
-    const getAllSmartphones = async () => {
-        try {
-            const response = await axios.get('https://dummyjson.com/products/category/smartphones');
-            return response.data.products;
-        } catch (error) {
-            console.error('Error:', error);
-            throw error;
-        }
-    }
+   useEffect(() => {
+      const getAllSmartphones = async () => await axios
+         .get('https://dummyjson.com/products/category/smartphones')
+         .then(({ data }) => setSmartphonesList(data.products))
+         .catch((error) => console.log(error))
 
-    useEffect(() => {
-        const fetchSmartphones = async () => {
-            try {
-                const smartphones = await getAllSmartphones();
-                setSmartphonesList(smartphones);
-            } catch (error) {
-                console.error('Error getting products:', error);
-            }
-        };
-        fetchSmartphones();
-    }, []);
-    
+      getAllSmartphones()
+   }, []);
 
-    return (
-        <div>
+   console.log('### smartphonesList', smartphonesList)
+
+   return (
+      <IndexPage>
+         <div>
             <h2>Smartphones</h2>
             <ul>
-                {smartphonesList.map((smartphone, index) => (
-                    <li key={index}>
-                        <Link to={`/product/${smartphone.id}`}>{smartphone.title}</Link>
-                    </li>
-                ))}
+               {smartphonesList.map((smartphone, index) => (
+                  <li key={index}>
+                     <Link to={`/product/${smartphone.id}`}>{smartphone.title}</Link>
+                  </li>
+               ))}
+
             </ul>
-        </div>
-    )
+         </div>
+      </IndexPage>
+   )
 }
 
 export default Smartphones;
