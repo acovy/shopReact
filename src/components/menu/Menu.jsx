@@ -19,7 +19,7 @@ const Menu = ({ selectedCategories }) => {
    return (
       <div className="menu">
          {products.map((product) => (
-            <div className="nav-item">{product.title}</div>
+            <div className="nav-item">{product.title.toUpperCase()}</div>
          ))}
       </div>
    )

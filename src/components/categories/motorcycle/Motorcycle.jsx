@@ -31,7 +31,6 @@ const Motorcycle = () => {
    return (
       <IndexPage>
          <div className=''>
-            <h2>Motorcycle</h2>
             <ul>
                {motorcycleList.map((motorcycle, index) => (
                   <li key={index}>
