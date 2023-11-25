@@ -19,7 +19,7 @@ const Smartphones = () => {
 
    return (
       <IndexPage>
-         <div>
+         <div className=''>
             <h2>Smartphones</h2>
             <ul>
                {smartphonesList.map((smartphone, index) => (

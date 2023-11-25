@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './menu.scss';
 
 const Menu = ({ selectedCategories }) => {
    const [products, setProducts] = useState([])
@@ -16,9 +17,9 @@ const Menu = ({ selectedCategories }) => {
    console.log('### products', products)
 
    return (
-      <div className="">
+      <div className="menu">
          {products.map((product) => (
-            <div className="">{product.title}</div>
+            <div className="nav-item">{product.title}</div>
          ))}
       </div>
    )

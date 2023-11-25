@@ -1,0 +1,20 @@
+.menu{
+    left: 350px;
+    top: 8%;
+    position: absolute;
+    font-size: large;
+    .nav-item{
+        margin-bottom: 10px;
+        padding: .4rem 1.2rem;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 0.5rem 0.8rem rgba(0,0,0,0.2);
+        border-radius: .6rem;
+        line-height: 1.8rem;
+        z-index: 20;
+        &:hover {
+            background-color: #12171e;
+            color: #fff;
+            cursor: pointer; 
+        }
+    }
+}
